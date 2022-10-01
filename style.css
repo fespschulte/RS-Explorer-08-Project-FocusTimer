@@ -2,16 +2,56 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+
 }
 
 :root {
+  font-size: 62.5%;
+  --bg-color: #121214;
+  --base-color: 240;
+  --bg-primary-light: hsla(var(--base-color), 100%, 63%, 0.13);
+  --primary-color: hsl(var(--base-color), 100%, 63%);;
+  --text-color: #FFFFFF;
 
 }
 
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
 main {
+  height: 100vh;
   display: grid;
   place-content: center;
   justify-items: center;
+}
+
+.timer {
+  display: flex;
+  font-weight: 700;
+  font-size: 8.8rem;
+  line-height: 10.3rem;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--bg-primary-light);
+  padding: 2.2rem 4rem;
+  border-radius: 999.9rem;
+  width: 100%;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.hide {
+  display: none;
 }
 
 footer {
