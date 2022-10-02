@@ -1,0 +1,1 @@
+// Arquivo principal para script do temporizador
