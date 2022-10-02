@@ -31,23 +31,30 @@ main {
 .timer {
   display: flex;
   font-weight: 700;
-  font-size: 8.8rem;
+  font-size: clamp(4rem, 4rem + 10vw, 8.8rem);
   line-height: 10.3rem;
 }
 
 .controls {
   display: flex;
-  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
+  gap: 3.2rem;
   background-color: var(--bg-primary-light);
   padding: 2.2rem 4rem;
   border-radius: 999.9rem;
-  width: 100%;
+  width: clamp(10rem, 10rem + 30vw, 22.8rem);
+  height: clamp(8rem, 5rem + 10vh, 10.8rem);
 }
 
 button {
   background-color: transparent;
   border: none;
   cursor: pointer;
+}
+
+button img {
+  width: clamp(3.2rem, 2rem + 12vw, 6.4rem);
 }
 
 .hide {
