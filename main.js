@@ -1,19 +1,23 @@
 // Arquivo principal para script do temporizador
 
-let play = document.querySelector('.play')
-let pause = document.querySelector('.pause')
+let buttonPlay = document.querySelector('.play')
+let buttonPause = document.querySelector('.pause')
+let buttonStop = document.querySelector('.stop')
+let buttonSet = document.querySelector('.set')
+
+
 
 play.addEventListener('click', function() {
-  play.classList.add('hide')
+  buttonPlay.classList.add('hide')
 
-  pause.classList.remove('hide')
+  buttonPause.classList.remove('hide')
 
 })
 
 pause.addEventListener('click', function() {
-  play.classList.remove('hide')
+  buttonPlay.classList.remove('hide')
 
-  pause.classList.add('hide')
+  buttonPause.classList.add('hide')
 
 })
 
