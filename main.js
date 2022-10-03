@@ -13,8 +13,12 @@ const secondsDisplay = document.querySelector(".seconds")
 function countDown () {
   setTimeout(function () {
     let seconds = Number(secondsDisplay.textContent)
+    let minutes = Number(minutesDisplay.textContent)
+
     if( seconds <= 0 ) {
       seconds = 60
+
+      minutesDisplay.textContent = minutes - 1
     }
     secondsDisplay.textContent = seconds - 1
     countDown()
