@@ -20,7 +20,12 @@ function countDown () {
 
       minutesDisplay.textContent = minutes - 1
     }
-    secondsDisplay.textContent = seconds - 1
+    secondsDisplay.textContent = String(seconds - 1).padStart(2, "0")
+
+    if (minutes <= 0) {
+      return
+    }
+
     countDown()
   }, 1000)
 
