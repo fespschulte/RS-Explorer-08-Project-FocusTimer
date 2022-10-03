@@ -8,9 +8,10 @@ const buttonStop = document.querySelector('.stop')
 const buttonSet = document.querySelector('.set')
 const buttonSoundOn = document.querySelector('.sound-on')
 const buttonSoundOff = document.querySelector('.sound-off')
-let minutes
+let timerTimeOut
 const minutesDisplay = document.querySelector(".minutes")
 const secondsDisplay = document.querySelector(".seconds")
+let minutes = Number(minutesDisplay.textContent)
 
 function resetControls() {
   buttonPlay.classList.remove('hide')
@@ -19,17 +20,23 @@ function resetControls() {
   buttonStop.classList.add('hide')
 }
 
+function resetTimer() {
+  clearTimeout(timerTimeOut)
+  updateTimerDisplay(minutes, 0)
+}
+
 function updateTimerDisplay(minutes, seconds) {
   minutesDisplay.textContent = String(minutes).padStart(2, "0")
   secondsDisplay.textContent = String(seconds).padStart(2, "0")
 }
 
 function countDown () {
-  setTimeout(function () {
+
+  timerTimeOut = setTimeout(function () {
     let seconds = Number(secondsDisplay.textContent)
     let minutes = Number(minutesDisplay.textContent)
 
-    secondsDisplay.textContent = "00"
+    updateTimerDisplay(minutes, 0)
     
     if (minutes <= 0) {
       resetControls()
@@ -38,13 +45,10 @@ function countDown () {
 
     if( seconds <= 0 ) {
       seconds = 60
-
-      minutesDisplay.textContent = minutes - 1
+      --minutes
     }
-    
-    secondsDisplay.textContent = String(seconds - 1).padStart(2, "0")
-    minutesDisplay.textContent = String(minutes - 1).padStart(2, "0")
 
+    updateTimerDisplay(minutes, String(seconds - 1))
 
     countDown()
   }, 1000)
@@ -64,15 +68,13 @@ buttonPlay.addEventListener('click', function() {
 
 buttonPause.addEventListener('click', function() {
   buttonPlay.classList.remove('hide')
-
   buttonPause.classList.add('hide')
-
-
+  clearTimeout(timerTimeOut)
 })
 
 buttonStop.addEventListener('click', function() {
+  resetTimer()
   resetControls()
-
 })
 
 buttonSoundOn.addEventListener('click', function () {
@@ -86,7 +88,7 @@ buttonSoundOff.addEventListener('click', function () {
 })
 
 buttonSet.addEventListener('click', function() {
-  minutes = prompt('Quantos minutos?')
+  minutes = prompt('Quantos minutos?') || 0
   updateTimerDisplay(minutes, 0)
 })
 
