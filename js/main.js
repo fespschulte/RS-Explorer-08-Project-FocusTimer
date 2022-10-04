@@ -88,7 +88,14 @@ buttonSoundOff.addEventListener('click', function () {
 })
 
 buttonSet.addEventListener('click', function() {
-  minutes = prompt('Quantos minutos?') || 0
+  let newMinutes = prompt('Quantos minutos?')
+
+  if (!newMinutes) {
+    resetTimer()
+    return
+  }
+
+  minutes = newMinutes
   updateTimerDisplay(minutes, 0)
 })
 
