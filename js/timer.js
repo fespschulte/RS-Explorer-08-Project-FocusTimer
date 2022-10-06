@@ -1,4 +1,4 @@
-export function Timer({ 
+export default function Timer({ 
   minutesDisplay, 
   secondsDisplay, 
   timerTimeOut, 

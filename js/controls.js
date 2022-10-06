@@ -1,4 +1,4 @@
-export function Controls({
+export default function Controls({
 
 }) {
   function resetControls() {
@@ -6,5 +6,9 @@ export function Controls({
     buttonPause.classList.add('hide')
     buttonSet.classList.remove('hide')
     buttonStop.classList.add('hide')
+  }
+
+  return {
+    resetControls
   }
 }
