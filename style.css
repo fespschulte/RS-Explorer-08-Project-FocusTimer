@@ -22,11 +22,21 @@ body {
   display: grid;
   min-height: 100vh;
 }
+/* 
+body .darkmode {
+  background-color: #ebebeb;
+} */
+
+header {
+    justify-self: end;
+    align-self: start;
+    padding: 3rem 3rem 0 0;
+}
 
 main {
   display: grid;
   justify-self: center;
-  align-self: end;
+  align-self: center;
 }
 
 #timer {
@@ -54,7 +64,7 @@ button {
   cursor: pointer;
 }
 
-button img {
+button svg {
   width: clamp(3.2rem, 2rem + 12vw, 6.4rem);
 }
 
@@ -65,6 +75,5 @@ button img {
 footer {
   justify-self: end;
   align-self: end;
-
   padding: 0 3rem 3rem 0;
 }
