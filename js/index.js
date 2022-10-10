@@ -3,14 +3,19 @@
 import Controls from "./controls.js"
 import Timer from "./timer.js"
 import Sound from "./sounds.js"
-import {   buttonPlay,
+import {   
+  buttonDarkMode,
+  buttonWhiteMode,
+  buttonPlay,
   buttonPause,
   buttonStop,
   buttonSet,
   buttonSoundOn,
   buttonSoundOff,
   minutesDisplay,
-  secondsDisplay } from "./elements.js"
+  secondsDisplay, 
+  bodyBackground
+  } from "./elements.js"
 
 
 const controls = Controls ({
@@ -27,6 +32,18 @@ const timer = Timer({
 })
 
 const sound = Sound()
+
+buttonDarkMode.addEventListener('click', function() {
+  buttonDarkMode.classList.add('hide')
+  buttonWhiteMode.classList.remove('hide')
+  bodyBackground.classList.add('togglemode')
+})
+
+buttonWhiteMode.addEventListener('click', function() {
+  buttonDarkMode.classList.remove('hide')
+  buttonWhiteMode.classList.add('hide')
+  bodyBackground.classList.remove('togglemode')
+})
 
 buttonPlay.addEventListener('click', function() {
   controls.play()

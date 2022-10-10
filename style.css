@@ -8,29 +8,45 @@
 :root {
   font-size: 62.5%;
   --bg-color: #121214;
-  --base-color: 240;
-  --bg-primary-light: hsla(var(--base-color), 100%, 63%, 0.13);
-  --primary-color: hsl(var(--base-color), 100%, 63%);;
-  --text-color: #FFFFFF;
+  --base-color: 194;
+  --bg-primary-light: hsla(var(--base-color), 100%, 63%, 0.25);
+  --primary-color: hsl(var(--base-color), 100%, 63%);
+  --primary-color-whitemode: hsl(var(--base-color), 100%, 43%);
+  --text-white: #FFFFFF;
+  --text-dark: #2b2b2b;
 
 }
 
 body {
   font-family: 'Roboto', sans-serif;
   background-color: var(--bg-color);
-  color: var(--text-color);
+  color: var(--text-white);
   display: grid;
   min-height: 100vh;
 }
-/* 
-body .darkmode {
+
+.togglemode {
   background-color: #ebebeb;
-} */
+  color: var(--text-dark)
+}
+
+body.togglemode .controls .set svg path,
+body.togglemode .controls .stop svg path {
+  fill: var(--text-dark);
+}
+
+body.togglemode .controls .play svg path,
+body.togglemode .controls .pause svg path,
+body.togglemode .sound-on svg path,
+body.togglemode .sound-off svg path {
+  fill: var(--primary-color-whitemode);
+}
 
 header {
     justify-self: end;
     align-self: start;
     padding: 3rem 3rem 0 0;
+    max-height: 6.4rem;
 }
 
 main {
